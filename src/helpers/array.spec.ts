@@ -8,17 +8,17 @@ import {
   sortDESC,
 } from './array';
 
-describe('Helpers: array', () => {
-  describe('simple sort by value', () => {
+describe('Helpers: Array', () => {
+  describe('Simple sort by value', () => {
     describe('sortASC', () => {
-      it('array of numbers', () => {
+      it('Array of numbers', () => {
         const input: number[] = [0, 2, 4, 3, 1];
         const expected: number[] = [0, 1, 2, 3, 4];
 
         expect<number[]>(input.sort(sortASC)).toEqual(expected);
       });
 
-      it('array of strings', () => {
+      it('Array of strings', () => {
         const input: string[] = ['0', '2', '4', '3', '1', '10'];
         const expected: string[] = ['0', '1', '10', '2', '3', '4'];
 
@@ -27,14 +27,14 @@ describe('Helpers: array', () => {
     });
 
     describe('sortDESC', () => {
-      it('array of numbers', () => {
+      it('Array of numbers', () => {
         const input: number[] = [0, 2, 4, 3, 1];
         const expected: number[] = [4, 3, 2, 1, 0];
 
         expect<number[]>(input.sort(sortDESC)).toEqual(expected);
       });
 
-      it('array of strings', () => {
+      it('Array of strings', () => {
         const input: string[] = ['0', '2', '4', '3', '1', '10'];
         const expected: string[] = ['4', '3', '2', '10', '1', '0'];
 
@@ -43,15 +43,15 @@ describe('Helpers: array', () => {
     });
   });
 
-  describe('sort by length', () => {
-    describe('sort by length ASC', () => {
+  describe('Sort by length', () => {
+    describe('Sort by length ASC', () => {
       const arr: string[] = ['a', 'aaa', 'aa'];
       const result = arr.sort(sortByLengthASC);
 
       expect(result).toEqual(['a', 'aa', 'aaa']);
     });
 
-    describe('sort by length DESC', () => {
+    describe('Sort by length DESC', () => {
       const arr: string[] = ['a', 'aaa', 'aa'];
       const result = arr.sort(sortByLengthDESC);
 
@@ -59,19 +59,17 @@ describe('Helpers: array', () => {
     });
   });
 
-  describe('flatten', () => {
-    it('Test #1', () => {
-      const result = flatten([
-        [
-          [1, 2, 3],
-          [3, 4, 5],
-        ],
-        [12, 13],
-      ]);
-      const expected = [1, 2, 3, 3, 4, 5, 12, 13];
+  it('flatten', () => {
+    const result = flatten([
+      [
+        [1, 2, 3],
+        [3, 4, 5],
+      ],
+      [12, 13],
+    ]);
+    const expected = [1, 2, 3, 3, 4, 5, 12, 13];
 
-      expect(result).toEqual(expected);
-    });
+    expect(result).toEqual(expected);
   });
 
   it('moveItemToStart', () => {
