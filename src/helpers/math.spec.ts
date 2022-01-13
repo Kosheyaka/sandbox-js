@@ -1,4 +1,4 @@
-import { calcAverage } from './math';
+import { calcAverage, getMax } from './math';
 
 describe('Helpers: Math', () => {
   describe('calcAverage', () => {
@@ -36,6 +36,20 @@ describe('Helpers: Math', () => {
       const input = [-1, '-1.5', '-2.0'];
 
       expect(calcAverage(input)).toStrictEqual(-1.5);
+    });
+  });
+
+  describe('getMax', () => {
+    it('Test #1: basic', () => {
+      const input = [5, 0, 1, 10, 1];
+
+      expect(getMax(input)).toEqual(10);
+    });
+
+    it('Test #1: basic', () => {
+      const input = [5, 0, 1, 10, 1];
+
+      expect(getMax(input)).toEqual(10);
     });
   });
 });
