@@ -1,5 +1,7 @@
 import { DistinctByIdEntity } from './types';
 
-export function distinctById(entities: DistinctByIdEntity[]): DistinctByIdEntity[] {
+export function distinctById(
+  entities: DistinctByIdEntity[],
+): DistinctByIdEntity[] {
   return [];
 }
