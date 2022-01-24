@@ -46,7 +46,8 @@ export const moveItemToStart = <T>(
   condition: moveItemInArrayCondition<T>,
 ): T[] => {
   const index = array.findIndex(condition);
-  if (index > -1) {
+  // "More than 0" because it will not move item from 0 to 0
+  if (index > 0) {
     const clone = [...array];
     const [element] = clone.splice(index, 1);
     clone.unshift(element);
