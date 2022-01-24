@@ -1,7 +1,7 @@
-export const sortASC = (a: number | string, b: number | string): number =>
+export const sortASC = <T = number | string>(a: T, b: T): number =>
   a < b ? -1 : a > b ? 1 : 0;
 
-export const sortDESC = (a: number | string, b: number | string): number =>
+export const sortDESC = <T = number | string>(a: T, b: T): number =>
   a < b ? 1 : a > b ? -1 : 0;
 
 export const sortByKeyASC = <T>(a: T, b: T, key: keyof T) =>
@@ -27,7 +27,7 @@ export const sortByLengthASC = (a: string, b: string): number =>
 export const sortByLengthDESC = (a: string, b: string): number =>
   a.length < b.length ? 1 : a.length > b.length ? -1 : 0;
 
-export const flatten = (arr: any[]): number[] => {
+export const flatten = <T>(arr: T[]): T[] => {
   let flatArray = [];
   arr.forEach((item) => {
     if (item.constructor === Array) {
@@ -47,9 +47,12 @@ export const moveItemToStart = <T>(
 ): T[] => {
   const index = array.findIndex(condition);
   if (index > -1) {
-    const [element] = [...array].splice(index, 1);
-    return [element, ...array];
+    const clone = [...array];
+    const [element] = clone.splice(index, 1);
+    clone.unshift(element);
+    return clone;
   }
+
   return array;
 };
 
@@ -59,8 +62,11 @@ export const moveItemToEnd = <T>(
 ): T[] => {
   const index = array.findIndex(condition);
   if (index > -1) {
-    const [element] = [...array].splice(index, 1);
-    return [...array, element];
+    const clone = [...array];
+    const [element] = clone.splice(index, 1);
+    clone.push(element);
+    return clone;
   }
+
   return array;
 };
