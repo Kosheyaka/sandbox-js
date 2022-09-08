@@ -14,7 +14,7 @@ describe('NodeJS: Pipes', () => {
     const readableStream = fs.createReadStream(source, 'utf8');
     const writeableStream = fs.createWriteStream(target);
 
-    readableStream.on('data', chunk => {
+    readableStream.on('data', (chunk) => {
       writeableStream.write(chunk);
     });
 
